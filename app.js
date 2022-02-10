@@ -37,16 +37,16 @@ let groceryList = window.localStorage.getItem('groceries')
 let removeFunc = (e) => {
     let list = document.querySelectorAll('li');
     let toRemove = e.target.closest('li');
-    let grocList = groceryList;
+    let groLi = groceryList.splice();
 
     for (let i = 0; i < list.length; i += 1) {
         let current = list[i];
         if (current.innerText === toRemove.innerText) {
-            grocList.splice(i, 1);
+            groLi.splice(i, 1);
             break;
         }
     }
-    window.localStorage.setItem('groceries', JSON.stringify(grocList));
+    window.localStorage.setItem('groceries', JSON.stringify(groLi));
     toRemove.remove(toRemove);
 }
 
